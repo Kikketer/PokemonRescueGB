@@ -35,8 +35,8 @@
                 {
                     "id": "e63a0fb5-2d9e-4a85-9ba0-e711e6de6cdc",
                     "spriteSheetId": "30b8266a-0533-4f90-bd33-e97dc1d498ea",
-                    "x": 27,
-                    "y": 23,
+                    "x": 17,
+                    "y": 13,
                     "movementType": "static",
                     "direction": "down",
                     "script": [
@@ -59,7 +59,8 @@
                     "hit3Script": [],
                     "updateScript": [],
                     "moveSpeed": 1,
-                    "collisionGroup": ""
+                    "collisionGroup": "",
+                    "name": "Sign"
                 },
                 {
                     "id": "d12d5092-2716-441d-bab0-0e15fe715f5e",
@@ -83,7 +84,7 @@
                 },
                 {
                     "id": "c73c195d-5cc8-4417-bdb0-b0c55c4b6188",
-                    "spriteSheetId": "09ad70c6-3ce5-4b97-9e96-466221418a45",
+                    "spriteSheetId": "1e27bb8e-c805-435a-8b87-05b4f50da4f0",
                     "x": 15,
                     "y": 24,
                     "movementType": "randomWalk",
@@ -202,8 +203,8 @@
                                                     "args": {
                                                         "variable": "L1",
                                                         "value": {
-                                                            "type": "number",
-                                                            "value": 14
+                                                            "type": "property",
+                                                            "value": "player:xpos"
                                                         },
                                                         "__collapse": false
                                                     },
@@ -214,8 +215,8 @@
                                                     "args": {
                                                         "variable": "L2",
                                                         "value": {
-                                                            "type": "number",
-                                                            "value": 15
+                                                            "type": "property",
+                                                            "value": "player:ypos"
                                                         },
                                                         "__collapse": false
                                                     },
@@ -273,17 +274,25 @@
                                                         "actorId": "player",
                                                         "direction": "left",
                                                         "__collapseElse": true,
-                                                        "__collapse": true,
-                                                        "__comment": true
+                                                        "__collapse": false,
+                                                        "__comment": false
                                                     },
                                                     "children": {
                                                         "true": [
                                                             {
                                                                 "command": "EVENT_DEC_VALUE",
                                                                 "args": {
-                                                                    "variable": "T0"
+                                                                    "variable": "L1",
+                                                                    "__collapse": false
                                                                 },
                                                                 "id": "68220a13-753d-4995-ac86-08d69a93b1bb"
+                                                            },
+                                                            {
+                                                                "command": "EVENT_DEC_VALUE",
+                                                                "args": {
+                                                                    "variable": "L1"
+                                                                },
+                                                                "id": "f62d57e7-6e11-4030-b9e0-0848bf859e96"
                                                             }
                                                         ],
                                                         "false": []
@@ -318,12 +327,12 @@
                                                     "args": {
                                                         "actorId": "$self$",
                                                         "x": {
-                                                            "type": "number",
-                                                            "value": 14
+                                                            "type": "variable",
+                                                            "value": "L1"
                                                         },
                                                         "y": {
-                                                            "type": "number",
-                                                            "value": 15
+                                                            "type": "variable",
+                                                            "value": "L2"
                                                         }
                                                     },
                                                     "id": "81972c1d-7341-41fb-96bb-4f711b7548a7"
@@ -346,7 +355,7 @@
                             "args": {
                                 "time": 1,
                                 "__collapse": true,
-                                "__comment": true
+                                "__comment": false
                             }
                         },
                         {
@@ -491,7 +500,8 @@
                     "hit3Script": [],
                     "moveSpeed": 1,
                     "animSpeed": 15,
-                    "collisionGroup": ""
+                    "collisionGroup": "",
+                    "name": "Trial Cat"
                 },
                 {
                     "id": "076a0612-024a-426a-85fc-3e1054b9f74e",
@@ -528,30 +538,7 @@
                     "collisionGroup": ""
                 }
             ],
-            "triggers": [
-                {
-                    "x": 17,
-                    "y": 0,
-                    "width": 2,
-                    "height": 1,
-                    "trigger": "walk",
-                    "script": [
-                        {
-                            "id": "e5c482c4-82fd-4633-be82-1b2bc398a20c",
-                            "command": "EVENT_SWITCH_SCENE",
-                            "args": {
-                                "x": 9,
-                                "y": 14,
-                                "direction": "up",
-                                "sceneId": "1b7f9ffd-2bbb-470b-9189-c2ac435d2a55",
-                                "fadeSpeed": "2"
-                            }
-                        }
-                    ],
-                    "id": "fc139bcd-a16b-4151-a9de-7b7e88e437d6",
-                    "leaveScript": []
-                }
-            ],
+            "triggers": [],
             "collisions": [
                 0,
                 0,
@@ -1579,516 +1566,6 @@
                 0
             ],
             "script": [],
-            "playerHit1Script": [],
-            "playerHit2Script": [],
-            "playerHit3Script": [],
-            "type": "TOPDOWN"
-        },
-        {
-            "id": "1b7f9ffd-2bbb-470b-9189-c2ac435d2a55",
-            "name": "House",
-            "backgroundId": "b340b9a2-2865-4e05-91c0-148846a693c8",
-            "x": 340,
-            "y": 74,
-            "width": 20,
-            "height": 18,
-            "actors": [
-                {
-                    "name": "",
-                    "frame": 0,
-                    "animate": false,
-                    "spriteSheetId": "09ad70c6-3ce5-4b97-9e96-466221418a45",
-                    "direction": "down",
-                    "moveSpeed": 1,
-                    "animSpeed": 15,
-                    "paletteId": "",
-                    "isPinned": false,
-                    "collisionGroup": "",
-                    "script": [],
-                    "startScript": [
-                        {
-                            "command": "EVENT_ACTOR_HIDE",
-                            "args": {
-                                "actorId": "$self$",
-                                "__collapse": false
-                            },
-                            "id": "a2112ff5-6299-49cc-839a-1455cf32a977"
-                        }
-                    ],
-                    "updateScript": [],
-                    "hit1Script": [],
-                    "hit2Script": [],
-                    "hit3Script": [],
-                    "id": "4ac19421-6087-4443-8463-0ffd4daa5978",
-                    "x": 3,
-                    "y": 13
-                }
-            ],
-            "triggers": [
-                {
-                    "x": 9,
-                    "y": 16,
-                    "width": 2,
-                    "height": 1,
-                    "trigger": "walk",
-                    "script": [
-                        {
-                            "id": "f985ad64-ad48-4792-817b-2d57ae6956ff",
-                            "command": "EVENT_SWITCH_SCENE",
-                            "args": {
-                                "sceneId": "94c18861-b352-4f49-a64d-52f2e3415077",
-                                "x": 17,
-                                "y": 1,
-                                "direction": "down",
-                                "fadeSpeed": "2"
-                            }
-                        }
-                    ],
-                    "id": "d8200245-5aa1-4e8b-aa30-1a13bd2a9e1a",
-                    "leaveScript": []
-                },
-                {
-                    "name": "",
-                    "id": "16583716-0728-4b9f-9407-ae9b54240b02",
-                    "x": 2,
-                    "y": 4,
-                    "width": 16,
-                    "height": 11,
-                    "script": [
-                        {
-                            "command": "EVENT_IF_TRUE",
-                            "args": {
-                                "variable": "4",
-                                "__collapseElse": true
-                            },
-                            "children": {
-                                "true": [
-                                    {
-                                        "command": "EVENT_SET_INPUT_SCRIPT",
-                                        "args": {
-                                            "input": [
-                                                "a",
-                                                "b"
-                                            ],
-                                            "__scriptTabs": "press"
-                                        },
-                                        "children": {
-                                            "true": [
-                                                {
-                                                    "command": "EVENT_SET_FALSE",
-                                                    "args": {
-                                                        "variable": "4"
-                                                    },
-                                                    "id": "7781f741-8e3d-4d71-b114-8ff52e5089c1"
-                                                },
-                                                {
-                                                    "command": "EVENT_ACTOR_SHOW",
-                                                    "args": {
-                                                        "actorId": "4ac19421-6087-4443-8463-0ffd4daa5978"
-                                                    },
-                                                    "id": "d54fc397-2a62-4754-80a1-de2b33804d42"
-                                                },
-                                                {
-                                                    "command": "EVENT_ACTOR_MOVE_TO",
-                                                    "args": {
-                                                        "actorId": "4ac19421-6087-4443-8463-0ffd4daa5978",
-                                                        "x": {
-                                                            "type": "property",
-                                                            "value": "$self$:xpos"
-                                                        },
-                                                        "y": {
-                                                            "type": "property",
-                                                            "value": "player:ypos"
-                                                        },
-                                                        "moveType": "horizontal",
-                                                        "useCollisions": false
-                                                    },
-                                                    "id": "af9e3f8f-58ff-46f4-bef2-535da2172a23"
-                                                }
-                                            ]
-                                        },
-                                        "id": "d9e0b4dd-3321-4ca4-aa35-c1e1266e2780"
-                                    }
-                                ],
-                                "false": []
-                            },
-                            "id": "dbad31e2-470d-46da-b07d-0d12b8e14898"
-                        }
-                    ],
-                    "leaveScript": []
-                }
-            ],
-            "collisions": [
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                0,
-                0,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                0,
-                0,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                15,
-                15,
-                15,
-                15,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "script": [
-                {
-                    "command": "EVENT_CALL_CUSTOM_EVENT",
-                    "args": {
-                        "customEventId": "872f61cf-bd62-4e58-92ee-a751e7335fe9"
-                    },
-                    "id": "e65f2dfe-ecb7-4497-8e0d-6f54a107c004"
-                }
-            ],
             "playerHit1Script": [],
             "playerHit2Script": [],
             "playerHit3Script": [],
@@ -7564,8 +7041,8 @@
         "startDirection": "down",
         "showCollisions": true,
         "showConnections": true,
-        "worldScrollX": 732,
-        "worldScrollY": 446,
+        "worldScrollX": 739,
+        "worldScrollY": 510,
         "zoom": 200,
         "customColorsEnabled": false,
         "sgbEnabled": false,
