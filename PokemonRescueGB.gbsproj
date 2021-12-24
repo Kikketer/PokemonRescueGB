@@ -99,7 +99,30 @@
                         }
                     ],
                     "spriteType": "static",
-                    "startScript": [],
+                    "startScript": [
+                        {
+                            "command": "EVENT_SET_VALUE",
+                            "args": {
+                                "variable": "L0",
+                                "value": {
+                                    "type": "number",
+                                    "value": 100
+                                }
+                            },
+                            "id": "3743bd88-119d-4984-a92a-965707a3fc93"
+                        },
+                        {
+                            "command": "EVENT_SET_VALUE",
+                            "args": {
+                                "variable": "L1",
+                                "value": {
+                                    "type": "number",
+                                    "value": 100
+                                }
+                            },
+                            "id": "75081d27-f457-4d0b-bc8a-5c4983ffbb0b"
+                        }
+                    ],
                     "hit1Script": [],
                     "hit2Script": [],
                     "hit3Script": [],
@@ -6242,6 +6265,23 @@
                     "args": {
                         "actorId": "0",
                         "x": {
+                            "type": "number",
+                            "value": 32
+                        },
+                        "y": {
+                            "type": "number",
+                            "value": 32
+                        },
+                        "__comment": true,
+                        "__collapse": false
+                    },
+                    "id": "f1a738db-bf77-43c0-b782-d04df67974d5"
+                },
+                {
+                    "command": "EVENT_ACTOR_SET_POSITION",
+                    "args": {
+                        "actorId": "0",
+                        "x": {
                             "type": "variable",
                             "value": "1"
                         },
@@ -6262,8 +6302,35 @@
                         "__collapse": false
                     },
                     "id": "4dd58551-bfed-43c7-8cfb-1da15c37de62"
+                },
+                {
+                    "command": "EVENT_COMMENT",
+                    "args": {
+                        "text": "Move it nowhere just to re-engage the update",
+                        "__collapse": true
+                    },
+                    "id": "7ba2c854-7ebd-4512-8256-aa8a1efd2e75"
+                },
+                {
+                    "command": "EVENT_ACTOR_MOVE_RELATIVE",
+                    "args": {
+                        "actorId": "0",
+                        "x": 0,
+                        "y": 0,
+                        "moveType": "horizontal",
+                        "useCollisions": true
+                    },
+                    "id": "84e4dc9f-fd09-46d2-9718-22dd7ba103dd"
                 }
             ]
+        },
+        {
+            "id": "68c5bd5c-58ed-408a-978d-195ac21250f2",
+            "name": "Critter Play",
+            "description": "Check if the critter is playing, increase happiness",
+            "variables": {},
+            "actors": {},
+            "script": []
         }
     ],
     "music": [
@@ -6422,6 +6489,14 @@
         {
             "id": "10",
             "name": "carriedCritterId"
+        },
+        {
+            "id": "d12d5092-2716-441d-bab0-0e15fe715f5e__L0",
+            "name": "health"
+        },
+        {
+            "id": "d12d5092-2716-441d-bab0-0e15fe715f5e__L1",
+            "name": "happiness"
         }
     ],
     "engineFieldValues": [
@@ -6440,7 +6515,7 @@
         "showCollisions": true,
         "showConnections": true,
         "worldScrollX": 714,
-        "worldScrollY": 493,
+        "worldScrollY": 443,
         "zoom": 200,
         "customColorsEnabled": false,
         "sgbEnabled": false,
