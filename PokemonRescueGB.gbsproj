@@ -76,8 +76,8 @@
                 {
                     "id": "d12d5092-2716-441d-bab0-0e15fe715f5e",
                     "spriteSheetId": "ede130e6-013a-42d1-a786-1aed3fd3cf32",
-                    "x": 17,
-                    "y": 17,
+                    "x": 14,
+                    "y": 23,
                     "movementType": "static",
                     "direction": "down",
                     "animate": true,
@@ -106,7 +106,7 @@
                                 "variable": "L0",
                                 "value": {
                                     "type": "number",
-                                    "value": 100
+                                    "value": 50
                                 }
                             },
                             "id": "3743bd88-119d-4984-a92a-965707a3fc93"
@@ -117,7 +117,7 @@
                                 "variable": "L1",
                                 "value": {
                                     "type": "number",
-                                    "value": 100
+                                    "value": 95
                                 }
                             },
                             "id": "75081d27-f457-4d0b-bc8a-5c4983ffbb0b"
@@ -128,12 +128,55 @@
                     "hit3Script": [],
                     "updateScript": [
                         {
+                            "command": "EVENT_WAIT",
+                            "args": {
+                                "time": 2
+                            },
+                            "id": "1a9ec240-c3ee-4606-9f07-bbe8512a470a"
+                        },
+                        {
                             "command": "EVENT_CALL_CUSTOM_EVENT",
                             "args": {
                                 "customEventId": "4ed44813-2898-4b0e-b478-168b1a1f409f",
-                                "$variable[0]$": "L0"
+                                "$variable[0]$": "L2",
+                                "__comment": true
                             },
                             "id": "d65d70f2-29d0-4880-a4e2-3da128f84b3f"
+                        },
+                        {
+                            "command": "EVENT_CALL_CUSTOM_EVENT",
+                            "args": {
+                                "customEventId": "b82d8117-678b-46b8-b0f2-5a7ac2acae99",
+                                "$variable[0]$": "L0",
+                                "$variable[1]$": "10",
+                                "__collapse": false,
+                                "__comment": false,
+                                "$variable[2]$": "L1",
+                                "$variable[3]$": "5"
+                            },
+                            "id": "a1d4da1b-e3b5-4870-98a2-b1063cdca0ba"
+                        },
+                        {
+                            "command": "EVENT_CALL_CUSTOM_EVENT",
+                            "args": {
+                                "customEventId": "68c5bd5c-58ed-408a-978d-195ac21250f2",
+                                "$variable[0]$": "L4",
+                                "$variable[1]$": "L5",
+                                "$variable[2]$": "L1",
+                                "$variable[3]$": "6",
+                                "__comment": false
+                            },
+                            "id": "a3c29679-2e4c-496a-bdc5-22f99d76ed2f"
+                        },
+                        {
+                            "command": "EVENT_TEXT",
+                            "args": {
+                                "text": [
+                                    "Happy: $L1$"
+                                ],
+                                "avatarId": ""
+                            },
+                            "id": "59c451c3-fe20-4f18-8ab2-c2badd65846e"
                         }
                     ],
                     "moveSpeed": 1,
@@ -1624,7 +1667,52 @@
                 0,
                 0
             ],
-            "script": [],
+            "script": [
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "10",
+                        "value": {
+                            "type": "number",
+                            "value": 1
+                        }
+                    },
+                    "id": "990dd55b-4ce1-42ea-88b4-706cdfad6e3b"
+                },
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "12",
+                        "value": {
+                            "type": "number",
+                            "value": 3
+                        }
+                    },
+                    "id": "b4123f0a-1d22-406d-a463-235ce8f91388"
+                },
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "5",
+                        "value": {
+                            "type": "number",
+                            "value": 1
+                        }
+                    },
+                    "id": "b2a73516-2225-4564-8e3c-9edb3f458530"
+                },
+                {
+                    "command": "EVENT_SET_VALUE",
+                    "args": {
+                        "variable": "6",
+                        "value": {
+                            "type": "number",
+                            "value": 3
+                        }
+                    },
+                    "id": "daa82165-1ab3-47e9-a68c-90eab7701754"
+                }
+            ],
             "playerHit1Script": [],
             "playerHit2Script": [],
             "playerHit3Script": [],
@@ -6328,9 +6416,304 @@
             "id": "68c5bd5c-58ed-408a-978d-195ac21250f2",
             "name": "Critter Play",
             "description": "Check if the critter is playing, increase happiness",
-            "variables": {},
-            "actors": {},
-            "script": []
+            "variables": {
+                "0": {
+                    "id": "0",
+                    "name": "xPos"
+                },
+                "1": {
+                    "id": "1",
+                    "name": "yPos"
+                },
+                "2": {
+                    "id": "2",
+                    "name": "happiness"
+                },
+                "3": {
+                    "id": "3",
+                    "name": "happinessImproveFactor"
+                }
+            },
+            "actors": {
+                "0": {
+                    "id": "0",
+                    "name": "critter"
+                }
+            },
+            "script": [
+                {
+                    "command": "EVENT_COMMENT",
+                    "args": {
+                        "text": "TODO figure out how to have a param and use it in the math without this",
+                        "__collapse": true
+                    },
+                    "id": "4b364854-6fcf-4041-8560-69167027152e"
+                },
+                {
+                    "command": "EVENT_ACTOR_GET_POSITION",
+                    "args": {
+                        "actorId": "0",
+                        "vectorX": "0",
+                        "vectorY": "1",
+                        "__comment": false
+                    },
+                    "id": "c83b4544-e90c-40b0-81e0-f2ecaebfeb71"
+                },
+                {
+                    "command": "EVENT_IF_VALUE",
+                    "args": {
+                        "variable": "0",
+                        "operator": ">=",
+                        "comparator": 13,
+                        "__collapseElse": true
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_IF_VALUE",
+                                "args": {
+                                    "variable": "0",
+                                    "operator": "<",
+                                    "comparator": 26,
+                                    "__collapseElse": true
+                                },
+                                "children": {
+                                    "true": [
+                                        {
+                                            "command": "EVENT_IF_VALUE",
+                                            "args": {
+                                                "variable": "1",
+                                                "operator": ">",
+                                                "comparator": 10,
+                                                "__collapseElse": true
+                                            },
+                                            "children": {
+                                                "true": [
+                                                    {
+                                                        "command": "EVENT_IF_VALUE",
+                                                        "args": {
+                                                            "variable": "1",
+                                                            "operator": "<=",
+                                                            "comparator": 18,
+                                                            "__collapseElse": true
+                                                        },
+                                                        "children": {
+                                                            "true": [
+                                                                {
+                                                                    "command": "EVENT_IF_VALUE",
+                                                                    "args": {
+                                                                        "variable": "2",
+                                                                        "operator": "<",
+                                                                        "comparator": 100,
+                                                                        "__collapseElse": false
+                                                                    },
+                                                                    "children": {
+                                                                        "true": [
+                                                                            {
+                                                                                "command": "EVENT_VARIABLE_MATH",
+                                                                                "args": {
+                                                                                    "vectorX": "2",
+                                                                                    "operation": "add",
+                                                                                    "other": "var",
+                                                                                    "vectorY": "3",
+                                                                                    "value": 2,
+                                                                                    "minValue": "0",
+                                                                                    "maxValue": "255",
+                                                                                    "clamp": true
+                                                                                },
+                                                                                "id": "03ac9c28-3310-4a61-b0ee-8959d9fd8825"
+                                                                            }
+                                                                        ],
+                                                                        "false": [
+                                                                            {
+                                                                                "command": "EVENT_SET_VALUE",
+                                                                                "args": {
+                                                                                    "variable": "2",
+                                                                                    "value": {
+                                                                                        "type": "number",
+                                                                                        "value": 100
+                                                                                    }
+                                                                                },
+                                                                                "id": "70fbbd4b-980c-4ac1-b482-0ad7f6b25a87"
+                                                                            },
+                                                                            {
+                                                                                "command": "EVENT_ACTOR_EMOTE",
+                                                                                "args": {
+                                                                                    "actorId": "0",
+                                                                                    "emoteId": "a0fb64c2-d665-4f58-8739-f4dc78519733"
+                                                                                },
+                                                                                "id": "6133aff2-de7e-464a-af0b-b851dc3c36b8"
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "id": "7a8d69da-bf69-4567-a1be-50e460940578"
+                                                                }
+                                                            ],
+                                                            "false": []
+                                                        },
+                                                        "id": "ff966b3d-17cb-4832-bb2b-43d4f34f8c6c"
+                                                    }
+                                                ],
+                                                "false": []
+                                            },
+                                            "id": "078bfdf6-a7f7-4b28-85c8-c1e4cda3a0fe"
+                                        }
+                                    ],
+                                    "false": []
+                                },
+                                "id": "1afe9c19-960f-4db8-9558-11be98c282b2"
+                            }
+                        ],
+                        "false": []
+                    },
+                    "id": "d065b262-3a6d-460d-8a56-f42e53afb7f4"
+                }
+            ]
+        },
+        {
+            "id": "b82d8117-678b-46b8-b0f2-5a7ac2acae99",
+            "name": "Critter Degrade",
+            "description": "Health and happiness degrade over time",
+            "variables": {
+                "0": {
+                    "id": "0",
+                    "name": "health"
+                },
+                "1": {
+                    "id": "1",
+                    "name": "healthDegradeFactor"
+                },
+                "2": {
+                    "id": "2",
+                    "name": "happiness"
+                },
+                "3": {
+                    "id": "3",
+                    "name": "happinessDegradeFactor"
+                }
+            },
+            "actors": {
+                "0": {
+                    "id": "0",
+                    "name": "critter"
+                }
+            },
+            "script": [
+                {
+                    "command": "EVENT_IF_VALUE_COMPARE",
+                    "args": {
+                        "vectorX": "0",
+                        "operator": ">",
+                        "vectorY": "1",
+                        "__collapseElse": true,
+                        "__label": "Degrade Health",
+                        "__collapse": true
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_VARIABLE_MATH",
+                                "args": {
+                                    "vectorX": "0",
+                                    "operation": "sub",
+                                    "other": "var",
+                                    "vectorY": "1",
+                                    "value": 5,
+                                    "minValue": "0",
+                                    "maxValue": "255",
+                                    "clamp": true,
+                                    "__collapse": false
+                                },
+                                "id": "f3759272-4212-4f58-9589-d216cd5e9037"
+                            }
+                        ],
+                        "false": []
+                    },
+                    "id": "5242c0ed-4bc3-45ff-8369-7194fd395830"
+                },
+                {
+                    "command": "EVENT_IF_VALUE",
+                    "args": {
+                        "variable": "0",
+                        "operator": "<",
+                        "comparator": 40,
+                        "__collapseElse": true,
+                        "__collapse": true,
+                        "__label": "Show sick if low health"
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_ACTOR_EMOTE",
+                                "args": {
+                                    "actorId": "0",
+                                    "emoteId": "980ef9d8-c998-4cfe-b679-8e39a061c946"
+                                },
+                                "id": "cee60939-4696-4058-b108-f4f4ff625fe9"
+                            }
+                        ],
+                        "false": []
+                    },
+                    "id": "54cbb950-90d8-4f5d-87a7-95c46014d0ce"
+                },
+                {
+                    "command": "EVENT_IF_VALUE_COMPARE",
+                    "args": {
+                        "vectorX": "2",
+                        "operator": ">",
+                        "vectorY": "3",
+                        "__collapseElse": true,
+                        "__label": "Degrade Happiness",
+                        "__collapse": true
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_VARIABLE_MATH",
+                                "args": {
+                                    "vectorX": "2",
+                                    "operation": "sub",
+                                    "other": "var",
+                                    "vectorY": "3",
+                                    "value": 5,
+                                    "minValue": "0",
+                                    "maxValue": "255",
+                                    "clamp": true,
+                                    "__collapse": false
+                                },
+                                "id": "e9fce462-f7c9-4e55-b5f3-f7fcf809afa6"
+                            }
+                        ],
+                        "false": []
+                    },
+                    "id": "a506420f-8371-46b4-ad4a-a49710cb58e7"
+                },
+                {
+                    "command": "EVENT_IF_VALUE",
+                    "args": {
+                        "variable": "2",
+                        "operator": "<",
+                        "comparator": 40,
+                        "__collapseElse": true,
+                        "__collapse": true,
+                        "__label": "Show sad if low happiness"
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_ACTOR_EMOTE",
+                                "args": {
+                                    "actorId": "0",
+                                    "emoteId": "603fd18d-674c-4360-9f57-5fb4b935b442"
+                                },
+                                "id": "ee9217ef-eba2-490e-ae24-662214662422"
+                            }
+                        ],
+                        "false": []
+                    },
+                    "id": "5ca2f6c1-db58-4721-98e7-9efe0b8fa200"
+                }
+            ]
         }
     ],
     "music": [
@@ -6382,6 +6765,13 @@
             "width": 16,
             "height": 16,
             "filename": "anger.png"
+        },
+        {
+            "id": "980ef9d8-c998-4cfe-b679-8e39a061c946",
+            "name": "hungry",
+            "width": 16,
+            "height": 16,
+            "filename": "hungry.png"
         },
         {
             "id": "a0fb64c2-d665-4f58-8739-f4dc78519733",
@@ -6455,14 +6845,6 @@
             "name": "isCarrying"
         },
         {
-            "id": "5",
-            "name": "Quest2"
-        },
-        {
-            "id": "6",
-            "name": "Quest3"
-        },
-        {
             "id": "7",
             "name": "Quest4"
         },
@@ -6480,7 +6862,7 @@
         },
         {
             "id": "12",
-            "name": "PushedIceBlock"
+            "name": "healthImproveFactor"
         },
         {
             "id": "c73c195d-5cc8-4417-bdb0-b0c55c4b6188__L0",
@@ -6488,7 +6870,7 @@
         },
         {
             "id": "10",
-            "name": "carriedCritterId"
+            "name": "healthDegradeFactor"
         },
         {
             "id": "d12d5092-2716-441d-bab0-0e15fe715f5e__L0",
@@ -6497,6 +6879,26 @@
         {
             "id": "d12d5092-2716-441d-bab0-0e15fe715f5e__L1",
             "name": "happiness"
+        },
+        {
+            "id": "d12d5092-2716-441d-bab0-0e15fe715f5e__L2",
+            "name": "movementDirection"
+        },
+        {
+            "id": "d12d5092-2716-441d-bab0-0e15fe715f5e__L4",
+            "name": "tempXPos"
+        },
+        {
+            "id": "d12d5092-2716-441d-bab0-0e15fe715f5e__L5",
+            "name": "tempYPos"
+        },
+        {
+            "id": "5",
+            "name": "happinessDegradeFactor"
+        },
+        {
+            "id": "6",
+            "name": "happinessImproveFactor"
         }
     ],
     "engineFieldValues": [
@@ -6514,8 +6916,8 @@
         "startDirection": "down",
         "showCollisions": true,
         "showConnections": true,
-        "worldScrollX": 714,
-        "worldScrollY": 443,
+        "worldScrollX": 732,
+        "worldScrollY": 517,
         "zoom": 200,
         "customColorsEnabled": false,
         "sgbEnabled": false,
@@ -6545,8 +6947,8 @@
         "playerPaletteId": "",
         "navigatorSplitSizes": [
             267,
-            142,
-            365
+            199,
+            308
         ],
         "showNavigator": true,
         "defaultFontId": "26fa15df-3318-44ad-8bfd-feff8ba7991d",
