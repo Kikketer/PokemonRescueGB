@@ -426,7 +426,8 @@
                                     "value": "player:ypos"
                                 },
                                 "moveType": "horizontal",
-                                "useCollisions": false
+                                "useCollisions": false,
+                                "__comment": true
                             },
                             "id": "00b83486-788d-4830-af90-e9f90511ecdf"
                         },
@@ -435,7 +436,7 @@
                             "args": {
                                 "customEventId": "4ed44813-2898-4b0e-b478-168b1a1f409f",
                                 "$variable[0]$": "L2",
-                                "__comment": true,
+                                "__comment": false,
                                 "__collapse": false
                             },
                             "id": "55f4d669-ac41-450e-9e61-a9322fe03749"
@@ -586,7 +587,8 @@
                                     "value": "player:ypos"
                                 },
                                 "moveType": "horizontal",
-                                "useCollisions": false
+                                "useCollisions": false,
+                                "__comment": true
                             },
                             "id": "06a5c452-9e48-4e40-aebd-242124d1ca6c"
                         },
@@ -595,7 +597,7 @@
                             "args": {
                                 "customEventId": "4ed44813-2898-4b0e-b478-168b1a1f409f",
                                 "$variable[0]$": "L2",
-                                "__comment": true,
+                                "__comment": false,
                                 "__collapse": false
                             },
                             "id": "3f4d6f43-9e92-4a28-b614-046fdc4b736e"
@@ -746,7 +748,8 @@
                                     "value": "player:ypos"
                                 },
                                 "moveType": "horizontal",
-                                "useCollisions": false
+                                "useCollisions": false,
+                                "__comment": true
                             },
                             "id": "ba106783-b941-43e5-9b67-ce83cb8065d3"
                         },
@@ -755,7 +758,7 @@
                             "args": {
                                 "customEventId": "4ed44813-2898-4b0e-b478-168b1a1f409f",
                                 "$variable[0]$": "L2",
-                                "__comment": true,
+                                "__comment": false,
                                 "__collapse": false
                             },
                             "id": "a6fa285b-35eb-4d33-9e1e-7af265ee78ff"
@@ -906,7 +909,8 @@
                                     "value": "player:ypos"
                                 },
                                 "moveType": "horizontal",
-                                "useCollisions": false
+                                "useCollisions": false,
+                                "__comment": true
                             },
                             "id": "f5b7873a-0741-4a85-af5b-ec43fa112fcb"
                         },
@@ -915,7 +919,7 @@
                             "args": {
                                 "customEventId": "4ed44813-2898-4b0e-b478-168b1a1f409f",
                                 "$variable[0]$": "L2",
-                                "__comment": true,
+                                "__comment": false,
                                 "__collapse": false
                             },
                             "id": "1359ded5-77de-4fec-ba72-b5e63403d781"
